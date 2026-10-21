@@ -1,0 +1,71 @@
+Good — this is the GenLayer Portal "Intelligent Contracts" track. Now getting the ground truth on the current SDK rather than trusting blog snippets.
+
+
+Fetched 2 web(s), Thought 1 time(s), Ran 1 command(s)
+
+PyPI's index is being reset mid-download and the docs fetch timed out. Trying alternate routes to the SDK source.
+
+
+Searched the web 1 time(s), Thought 1 time(s), Ran 1 command(s)
+
+Found the key pieces: genlayer-py SDK, genlayer-testing-suite (pytest, direct mode with mocked web/LLM), and genvm-lint rules. Pulling all three.
+
+
+Thought 1 time(s), Ran 2 command(s)
+
+Sandbox quirks (PEP 668 + no CA bundle for git). Working around both.
+
+
+Thought 2 time(s), Ran 4 command(s)
+
+The authoritative SDK source is in the GenVM repo itself. Reading it.
+
+
+Thought 1 time(s), Ran 2 command(s)
+
+Now the ground truth: the contract-side genlayer stdlib source, plus fixing the pip path.
+
+
+Thought 1 time(s), Ran 2 command(s)
+
+genlayer-test installed. Now reading the exact contract-side API surface.
+
+
+Thought 2 time(s), Ran 4 command(s)
+
+Now let me see how the test harness actually loads contracts, and get Python 3.12 (the stdlib uses PEP 695 generics — 3.12+ required).
+
+
+Performed 1 session actions, Thought 4 time(s), Ran 7 command(s)
+
+Python 3.12 is ready. Setting up the test harness while I read the mocking/consensus-testing docs.
+
+
+Performed 1 session actions, Thought 3 time(s), Ran 4 command(s)
+
+Now the contract-side details that decide the design: hashing, storage key types, address handling, and what the write methods may return.
+
+
+Performed 2 session actions, Thought 8 time(s), Ran 10 command(s)
+
+Harness installed. Let me smoke-test the whole direct-runner pipeline (it downloads the GenVM runner bundle) before I commit to a design.
+
+
+Thought 3 time(s), Viewed 1 file(s), Ran 4 command(s)
+
+Pinning the SDK runner hash (the test alias isn't resolvable outside Studio). Verifying.
+
+
+Thought 1 time(s), Ran 1 command(s)
+
+Direct runner works end-to-end. Now confirming the exact API of the pinned SDK I'll ship against.
+
+
+Thought 3 time(s), Ran 3 command(s)
+
+Pinned SDK is byte-identical to the source I read. Now de-risking the riskiest assumption: whether a validator can independently re-fetch and re-call the LLM inside the consensus sandbox.
+
+
+Thought 1 time(s), Ran 1 command(s)
+
+Architecture validated: validators independently re-fetch and re-judge inside the consensus sandbox. Now checking write-method return rules before I write the contract.
